@@ -9,13 +9,13 @@ export function Header() {
         </Link>
 
         <nav className="flex items-center gap-8">
-          <Link href="#products" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
+          <Link href="/categories" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
             All Products
           </Link>
-          <Link href="#about" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
+          <Link href="/about" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
             About Us
           </Link>
-          <Link href="#contact" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
+          <Link href="/contact" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
             Contact
           </Link>
         </nav>

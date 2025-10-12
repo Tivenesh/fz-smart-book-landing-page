@@ -1,6 +1,7 @@
 import { Header } from "@/components/header"
 import { ChatbotButton } from "@/components/chatbot-button"
 import { BookGrid } from "@/components/book-grid"
+import { Footer } from "@/components/footer"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
@@ -32,6 +33,7 @@ export default function BukuBergambar2BahasaPage() {
       <BookGrid />
 
       <ChatbotButton />
+      <Footer />
     </main>
   )
 }

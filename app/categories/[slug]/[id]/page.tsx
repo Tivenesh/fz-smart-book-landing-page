@@ -2,39 +2,42 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Footer } from "@/components/footer"
+import { ChatbotButton } from "@/components/chatbot-button"
 import { ArrowLeft, ShoppingCart } from "lucide-react"
 
-// Sample book data - in a real app, this would come from a database
+// Sample book data
 const books = [
   {
     id: 1,
-    title: "Buku Pasti Mengenal",
-    price: 9.0,
-    rack: "R03",
+    title: "Buku Bergambar My Early Amazing Picture Books Board",
+    price: 23.9,
+    rack: "R02",
     description:
-      "Buku bergambar 2 in 1 Bahasa Melayu dan English. ABC , 123, makanan sayur sayuran, pekerjaan, haiwan, yang sesuai untuk umur 1 tahun dan keatas.",
+      "Buku bergambar My early Amazing Picture Books Board sesuai untuk anak yang berumur 1 tahun sehingga 6 tahun ( material tahan lasak )",
     image: "/colorful-children-s-book-cover-with-forest-animals.jpg",
   },
   {
     id: 2,
     title: "Buah-Buahan Tempatan / Local Fruits",
     price: 23.9,
-    rack: "R05",
+    rack: "R02",
     description:
-      "Buku bergambar 2 in 1 Bahasa Melayu dan English. Mengenali pelbagai buah-buahan tempatan dengan ilustrasi yang menarik dan berwarna-warni.",
+      "Buku bergambar dwibahasa yang memperkenalkan pelbagai buah-buahan tempatan dengan ilustrasi yang menarik dan berwarna-warni.",
     image: "/colorful-children-s-book-cover-with-tropical-fruit.jpg",
   },
 ]
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
+export default function ProductDetailPage({ params }: { params: { slug: string; id: string } }) {
   const book = books.find((b) => b.id === Number.parseInt(params.id)) || books[0]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 via-pink-50 to-orange-50">
+      <ChatbotButton />
+
       {/* Header with back button */}
       <div className="container mx-auto px-4 py-6">
         <Link
-          href="/categories/buku-bergambar-2-bahasa"
+          href={`/categories/${params.slug}`}
           className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
@@ -117,7 +120,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         </div>
       </div>
 
-      {/* Footer component */}
       <Footer />
     </div>
   )

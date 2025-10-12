@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/hero-section"
 import { VisionSection } from "@/components/vision-section"
 import { CategoriesSection } from "@/components/categories-section"
 import { ChatbotButton } from "@/components/chatbot-button"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <VisionSection />
       <CategoriesSection />
       <ChatbotButton />
+      <Footer />
     </main>
   )
 }
