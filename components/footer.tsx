@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-
+import { motion } from "framer-motion"
 // Define a type for the star object
 interface Star {
   id: number;

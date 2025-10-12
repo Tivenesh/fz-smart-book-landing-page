@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Image from "next/image"
-
+import { motion } from "framer-motion"
 // Define types for state for better code quality
 interface Sparkle {
   id: number;

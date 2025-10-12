@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-
+import { motion } from "framer-motion"
 // Define a type for the sparkle object for better code quality
 interface Sparkle {
   id: number

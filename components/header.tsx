@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
-
+import { motion } from "framer-motion"
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 

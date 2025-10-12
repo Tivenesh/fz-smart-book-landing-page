@@ -1,5 +1,5 @@
 import { BookCard } from "./book-card"
-
+import { motion } from "framer-motion"
 const books = [
   {
     id: 1,

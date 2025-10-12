@@ -1,5 +1,5 @@
 'use client'
-
+import { motion } from "framer-motion"
 import * as React from 'react'
 import {
   ThemeProvider as NextThemesProvider,

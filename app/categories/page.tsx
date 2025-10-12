@@ -2,7 +2,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ChatbotButton } from "@/components/chatbot-button"
 import Link from "next/link"
-
+import { motion } from "framer-motion"
 const categories = [
   { name: "Buku Bergambar 3 Bahasa", slug: "buku-bergambar-3-bahasa", icon: "🌍", color: "from-blue-400 to-blue-600" },
   {

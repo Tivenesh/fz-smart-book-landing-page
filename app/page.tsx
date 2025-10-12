@@ -4,7 +4,7 @@ import { VisionSection } from "@/components/vision-section"
 import { CategoriesSection } from "@/components/categories-section"
 import { ChatbotButton } from "@/components/chatbot-button"
 import { Footer } from "@/components/footer"
-
+import { motion } from "framer-motion"
 export default function Home() {
   return (
     <main className="min-h-screen">

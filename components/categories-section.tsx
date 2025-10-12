@@ -1,5 +1,5 @@
 "use client"
-
+import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { BookOpen, Languages, Baby, Calculator, BookA, Shapes, Search, Volume2, Puzzle } from "lucide-react"
 import Link from "next/link"

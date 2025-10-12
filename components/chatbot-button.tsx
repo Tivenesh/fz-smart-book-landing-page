@@ -3,7 +3,7 @@
 import { MessageCircle } from "lucide-react"
 import { useState } from "react"
 import { ChatWindow } from "./chat-window"
-
+import { motion } from "framer-motion"
 export function ChatbotButton() {
   const [showTooltip, setShowTooltip] = useState(false)
   const [isChatOpen, setIsChatOpen] = useState(false)

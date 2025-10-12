@@ -1,124 +1,249 @@
-import Image from "next/image"
+"use client"
+import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+import { BookOpen, Languages, Baby, Calculator, BookA, Shapes, Search, Volume2, Puzzle } from "lucide-react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Footer } from "@/components/footer"
-import { ArrowLeft, ShoppingCart } from "lucide-react"
 
-// Sample book data - in a real app, this would come from a database
-const books = [
-  {
-    id: 1,
-    title: "Buku Pasti Mengenal",
-    price: 9.0,
-    rack: "R03",
-    description:
-      "Buku bergambar 2 in 1 Bahasa Melayu dan English. ABC , 123, makanan sayur sayuran, pekerjaan, haiwan, yang sesuai untuk umur 1 tahun dan keatas.",
-    image: "/colorful-children-s-book-cover-with-forest-animals.jpg",
-  },
-  {
-    id: 2,
-    title: "Buah-Buahan Tempatan / Local Fruits",
-    price: 23.9,
-    rack: "R05",
-    description:
-      "Buku bergambar 2 in 1 Bahasa Melayu dan English. Mengenali pelbagai buah-buahan tempatan dengan ilustrasi yang menarik dan berwarna-warni.",
-    image: "/colorful-children-s-book-cover-with-tropical-fruit.jpg",
-  },
+const categories = [
+    { title: "Buku Bergambar 3 Bahasa", icon: Languages, color: "from-yellow-400 to-orange-400", href: "/categories/buku-bergambar-3-bahasa" },
+    { title: "Buku Bergambar 2 Bahasa", icon: BookOpen, color: "from-pink-400 to-rose-400", href: "/categories/buku-bergambar-2-bahasa" },
+    { title: "Buku Pasti Mengenal", icon: Baby, color: "from-green-400 to-emerald-400", href: "/categories/buku-pasti-mengenal" },
+    { title: "Buku Aktiviti Matematik", icon: Calculator, color: "from-blue-400 to-cyan-400", href: "/categories/buku-aktiviti-matematik" },
+    { title: "English Reading Book", icon: BookA, color: "from-purple-400 to-violet-400", href: "/categories/english-reading-book" },
+    { title: "Shape Story Book", icon: Shapes, color: "from-red-400 to-pink-400", href: "/categories/shape-story-book" },
+    { title: "Word Search", icon: Search, color: "from-teal-400 to-cyan-400", href: "/categories/word-search" },
+    { title: "Sound Book", icon: Volume2, color: "from-orange-400 to-amber-400", href: "/categories/sound-book" },
+    { title: "Busy Book", icon: Puzzle, color: "from-indigo-400 to-purple-400", href: "/categories/busy-book" },
 ]
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const book = books.find((b) => b.id === Number.parseInt(params.id)) || books[0]
+interface Sparkle {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  duration: number;
+}
+
+export function CategoriesSection() {
+  const [floatOffset, setFloatOffset] = useState(0)
+  const [sparkles, setSparkles] = useState<Sparkle[]>([])
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFloatOffset(prev => (prev + 1) % 360)
+    }, 50)
+
+    const sparkleInterval = setInterval(() => {
+      const newSparkle: Sparkle = {
+        id: Math.random(),
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 20 + 10,
+        duration: Math.random() * 2 + 1
+      }
+      setSparkles(prev => [...prev, newSparkle])
+      setTimeout(() => {
+        setSparkles(prev => prev.filter(s => s.id !== newSparkle.id))
+      }, newSparkle.duration * 1000)
+    }, 1000)
+
+    return () => {
+      clearInterval(interval)
+      clearInterval(sparkleInterval)
+    }
+  }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 via-pink-50 to-orange-50">
-      {/* Header with back button */}
-      <div className="container mx-auto px-4 py-6">
-        <Link
-          href="/categories/buku-bergambar-2-bahasa"
-          className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          Kembali ke Senarai Buku
-        </Link>
-      </div>
-
-      {/* Product Detail Section */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-purple-200">
-          <div className="grid md:grid-cols-2 gap-0">
-            {/* Left: Book Image */}
-            <div className="relative h-[500px] md:h-auto bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 p-12 flex items-center justify-center">
-              <div className="relative w-full h-full max-w-md">
-                <Image
-                  src={book.image || "/placeholder.svg"}
-                  alt={book.title}
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  priority
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute top-6 left-6 w-16 h-16 bg-yellow-300 rounded-full opacity-50 blur-xl"></div>
-              <div className="absolute bottom-6 right-6 w-20 h-20 bg-pink-300 rounded-full opacity-50 blur-xl"></div>
-            </div>
-
-            {/* Right: Product Information */}
-            <div className="p-8 md:p-12 flex flex-col justify-center space-y-6">
-              {/* Title */}
-              <h1 className="font-black text-4xl md:text-5xl text-gray-800 leading-tight">{book.title}</h1>
-
-              {/* Price */}
-              <div className="inline-flex items-center gap-3">
-                <span className="text-gray-600 font-semibold text-lg">Harga:</span>
-                <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-black text-3xl px-6 py-3 rounded-2xl shadow-lg">
-                  RM {book.price.toFixed(2)}
-                </div>
-              </div>
-
-              {/* Rack Number */}
-              <div className="flex items-center gap-3">
-                <span className="text-gray-600 font-semibold text-lg">Rak:</span>
-                <div className="bg-yellow-400 text-purple-700 font-bold text-xl px-5 py-2 rounded-xl shadow-md">
-                  {book.rack}
-                </div>
-              </div>
-
-              {/* Description */}
-              <div className="space-y-3">
-                <h2 className="text-gray-700 font-bold text-xl">Penerangan:</h2>
-                <p className="text-gray-600 text-lg leading-relaxed">{book.description}</p>
-              </div>
-
-              {/* Add to Cart Button */}
-              <Button className="w-full md:w-auto bg-gradient-to-r from-pink-500 to-orange-400 hover:from-pink-600 hover:to-orange-500 text-white font-bold text-xl py-7 px-10 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-3">
-                <ShoppingCart className="w-6 h-6" />
-                Tambah ke Troli
-              </Button>
-
-              {/* Additional Info */}
-              <div className="pt-6 border-t-2 border-purple-100">
-                <div className="flex flex-wrap gap-3">
-                  <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">
-                    Sesuai untuk 1+ tahun
-                  </span>
-                  <span className="bg-pink-100 text-pink-700 px-4 py-2 rounded-full text-sm font-semibold">
-                    Dwibahasa
-                  </span>
-                  <span className="bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold">
-                    Bergambar
-                  </span>
-                </div>
-              </div>
-            </div>
+    <section id="products" className="relative py-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Sparkles */}
+        {sparkles.map(sparkle => (
+          <div
+            key={sparkle.id}
+            className="absolute animate-ping"
+            style={{
+              left: `${sparkle.x}%`,
+              top: `${sparkle.y}%`,
+              width: `${sparkle.size}px`,
+              height: `${sparkle.size}px`,
+              animationDuration: `${sparkle.duration}s`
+            }}
+          >
+            <div className="w-full h-full bg-yellow-200 rounded-full" />
           </div>
-
-          {/* Decorative bottom wave */}
-          <div className="h-3 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400"></div>
+        ))}
+        {/* Floating circles */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-300 rounded-full opacity-20 animate-pulse" style={{ animationDuration: "3s" }} />
+        <div className="absolute top-40 right-20 w-24 h-24 bg-pink-300 rounded-full opacity-30 animate-pulse" style={{ animationDuration: "4s", animationDelay: "1s" }} />
+        <div className="absolute bottom-40 left-1/4 w-20 h-20 bg-blue-300 rounded-full opacity-20 animate-pulse" style={{ animationDuration: "3.5s", animationDelay: "0.5s" }} />
+        
+        {/* Decorative animated clouds */}
+        <div className="absolute bottom-20 left-10 opacity-60" style={{ transform: `translateX(${Math.sin(floatOffset * 0.02) * 20}px)` }}>
+          <svg viewBox="0 0 100 50" className="w-24 h-12 drop-shadow-md">
+            <ellipse cx="50" cy="30" rx="30" ry="18" fill="white" />
+            <ellipse cx="30" cy="32" rx="22" ry="15" fill="white" />
+            <ellipse cx="70" cy="32" rx="22" ry="15" fill="white" />
+          </svg>
+        </div>
+        
+        <div className="absolute bottom-20 left-6 opacity-60" style={{ transform: `translateX(${Math.sin(floatOffset * 0.02 + 1) * 15}px)` }}>
+          <svg viewBox="0 0 100 50" className="w-16 h-10 drop-shadow-md">
+            <ellipse cx="50" cy="30" rx="25" ry="15" fill="white" />
+            <ellipse cx="32" cy="32" rx="18" ry="12" fill="white" />
+            <ellipse cx="68" cy="32" rx="18" ry="12" fill="white" />
+          </svg>
+        </div>
+        
+        <div className="absolute top-20 right-20 opacity-60" style={{ transform: `translateX(${Math.sin(floatOffset * 0.02 + Math.PI) * 25}px)` }}>
+          <svg viewBox="0 0 100 50" className="w-32 h-14 drop-shadow-md">
+            <ellipse cx="50" cy="30" rx="32" ry="20" fill="white" />
+            <ellipse cx="30" cy="32" rx="24" ry="16" fill="white" />
+            <ellipse cx="70" cy="32" rx="24" ry="16" fill="white" />
+          </svg>
+        </div>
+        
+        <div className="absolute top-20 right-16 opacity-60" style={{ transform: `translateX(${Math.sin(floatOffset * 0.02 + Math.PI + 1) * 20}px)` }}>
+          <svg viewBox="0 0 100 50" className="w-20 h-12 drop-shadow-md">
+            <ellipse cx="50" cy="30" rx="28" ry="16" fill="white" />
+            <ellipse cx="32" cy="32" rx="20" ry="13" fill="white" />
+            <ellipse cx="68" cy="32" rx="20" ry="13" fill="white" />
+          </svg>
+        </div>
+        
+        {/* Cute Monsters floating around */}
+        <div 
+          className="absolute top-10 left-20 w-32 h-32 pointer-events-auto cursor-pointer hover:scale-125 transition-transform duration-300"
+          style={{ 
+            transform: `translateY(${Math.sin(floatOffset * 0.04) * 15}px) rotate(${Math.sin(floatOffset * 0.04) * 5}deg)`,
+            filter: "drop-shadow(0 10px 20px rgba(139, 92, 246, 0.3))"
+          }}
+        >
+          <img
+            src="/image-removebg-preview.png"
+            alt="Cute monster"
+            className="w-full h-full object-contain"
+          />
+          <div 
+            className="absolute -top-4 right-0 text-2xl animate-ping"
+            style={{ animationDuration: "2s" }}
+          >
+            💜
+          </div>
+        </div>
+        <div 
+          className="absolute top-32 right-12 w-36 h-36 pointer-events-auto cursor-pointer hover:scale-125 transition-transform duration-300"
+          style={{ 
+            transform: `translateY(${Math.sin(floatOffset * 0.04 + Math.PI) * 18}px) rotate(${Math.sin(floatOffset * 0.04 + Math.PI) * 6}deg)`,
+            filter: "drop-shadow(0 10px 20px rgba(236, 72, 153, 0.3))"
+          }}
+        >
+          <img
+            src="/image-removebg-preview (2).png"
+            alt="Cute monster"
+            className="w-full h-full object-contain"
+          />
+          <div 
+            className="absolute -top-4 left-0 text-2xl animate-ping"
+            style={{ animationDuration: "2.5s", animationDelay: "0.5s" }}
+          >
+            ⭐
+          </div>
+        </div>
+        <div 
+          className="absolute bottom-32 left-12 w-28 h-28 pointer-events-auto cursor-pointer hover:scale-125 transition-transform duration-300"
+          style={{ 
+            transform: `translateY(${Math.sin(floatOffset * 0.04 + Math.PI/2) * 12}px) rotate(${Math.sin(floatOffset * 0.04) * -7}deg)`,
+            filter: "drop-shadow(0 10px 20px rgba(251, 191, 36, 0.3))"
+          }}
+        >
+          <img
+            src="/purple mosnter.png"
+            alt="Cute monster"
+            className="w-full h-full object-contain"
+          />
+          <div 
+            className="absolute -top-4 right-0 text-xl animate-bounce"
+            style={{ animationDuration: "2s" }}
+          >
+            ✨
+          </div>
+        </div>
+        <div 
+          className="absolute bottom-40 right-16 w-32 h-32 pointer-events-auto cursor-pointer hover:scale-125 transition-transform duration-300"
+          style={{ 
+            transform: `translateY(${Math.sin(floatOffset * 0.04 + Math.PI * 1.5) * 14}px) rotate(${Math.sin(floatOffset * 0.04) * 8}deg)`,
+            filter: "drop-shadow(0 10px 20px rgba(168, 85, 247, 0.3))"
+          }}
+        >
+          <img
+            src="/image-removebg-preview (1).png"
+            alt="Cute monster"
+            className="w-full h-full object-contain"
+          />
+          <div 
+            className="absolute -top-4 left-0 text-2xl animate-ping"
+            style={{ animationDuration: "3s" }}
+          >
+            💖
+          </div>
         </div>
       </div>
-
-      {/* Footer component */}
-      <Footer />
-    </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 
+          className="text-5xl font-bold text-center text-purple-600 mb-16 animate-pulse"
+          style={{ 
+            animationDuration: "3s",
+            textShadow: "3px 3px 0px rgba(236, 72, 153, 0.3)"
+          }}
+        >
+          Our Book Categories
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {categories.map((category, index) => {
+            const Icon = category.icon
+            const isHovered = hoveredCard === index
+            return (
+              <Link
+                key={index}
+                href={category.href}
+                className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-purple-300 block cursor-pointer"
+                style={{
+                  transform: `translateY(${Math.sin((floatOffset + index * 40) * 0.02) * 5}px) ${isHovered ? 'translateY(-10px) rotate(-2deg) scale(1.05)' : ''}`,
+                }}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                {/* Decorative corner stars */}
+                <div className="absolute -top-2 -right-2 text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin" style={{ animationDuration: "3s" }}>
+                  ⭐
+                </div>
+                <div className="absolute -bottom-2 -left-2 text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse">
+                  ✨
+                </div>
+                <div
+                  className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                  style={{
+                    transform: isHovered ? 'scale(1.2) rotate(5deg)' : ''
+                  }}
+                >
+                  <Icon className="w-10 h-10 text-white" strokeWidth={2.5} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 text-center group-hover:text-purple-600 transition-colors">
+                  {category.title}
+                </h3>
+                {/* Hearts appearing on hover */}
+                {isHovered && (
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl animate-ping opacity-50">
+                    💜
+                  </div>
+                )}
+              </Link>
+            )
+          })}
+        </div>
+      </div>
+    </section>
   )
 }
