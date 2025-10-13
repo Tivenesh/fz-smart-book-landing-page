@@ -111,12 +111,28 @@ export function VisionSection() {
           Our Vision
         </h2>
 
-        <p className="text-xl text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto">
-          Ecosmart catalogue for FZ Smart Book is a dedicated platform showcasing a wide range of products related to FZ
-          Smart Book. We are committed to providing innovative and eco-friendly solutions that inspire creativity and
-          learning for all ages.
-        </p>
+       <p className="text-xl text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto">
+ 
+   
 
+    {/* The core principle, centered for impact */}
+    <span className="block text-xl md:text-2xl text-center mb-10 font-medium">
+        To ignite a lifelong passion for learning and creativity by harmonizing education with environmental responsibility.
+    </span>
+
+    {/* Detailed explanation, maintaining the centered, contained aesthetic */}
+    <span className="block text-center text-lg md:text-xl text-gray-800">
+        We envision the <strong>EcoSmart Catalogue</strong> as the foundation of this commitment.
+    </span>
+    
+    <span className="block text-center text-lg md:text-xl text-gray-800 mt-4">
+        It is more than just a platform; it is our promise to you that we will always deliver a wide range of educational products through <strong>innovative and eco-friendly solutions</strong>.
+    </span>
+
+    <span className="block text-center text-lg md:text-xl text-gray-800 mt-4">
+        By blending a vibrant learning experience with sustainable technology, we ensure our mission—to inspire <strong>creativity and learning for all ages</strong>—supports the growth of both young minds and our planet. 💡💚
+    </span>
+</p>
         <a href="http://localhost:3000/about">
           <button
             className="border-2 border-purple-500 text-purple-600 hover:bg-purple-50 text-lg px-8 py-6 rounded-full bg-transparent transition-all duration-300 transform hover:scale-110 hover:-rotate-2 shadow-lg hover:shadow-xl"

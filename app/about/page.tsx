@@ -247,17 +247,45 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
-                    <span className="text-2xl">🎀</span> Fz Smart Book, founded in 2023 by Ms. Sharifah Syafiera bt Syed Ghazalli under Fz Smart Shop, offers
-                    interactive and engaging educational materials for children aged 3 months to 12 years.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
-                    <span className="text-2xl">🌟</span> With a focus on learning through play, the brand creates fun, user-friendly, and high-quality
-                    products that support parents and educators while nurturing a love for learning from an early age.
-                  </p>
-                </div>
+           <div className="prose prose-lg max-w-none">
+  
 
+    {/* Integrated and Cleaned Content (No more **) */}
+    <h2 className="text-3xl font-bold text-gray-900 mt-8 mb-4 text-center md:text-left">
+        Welcome to the World of FZ Smart Book! 📚✨
+    </h2>
+    <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
+        We're not just a bookstore; we're a <strong>launchpad for little learners</strong> 🚀! Our mission is simple but mighty: to inspire a lifelong love for reading and exploration in children, one incredible book and educational product at a time. 🤩
+    </p>
+
+    <h3 className="text-2xl font-semibold text-gray-800 mt-6 mb-3 text-center md:text-left">
+        Our Superpower: Learning Through Play 🖍️
+    </h3>
+    <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
+        At FZ Smart Book, we specialize in amazing educational materials for kids from <strong>3 months old all the way up to 12 years</strong>—from tiny tots to pre-teen adventurers. 👧👦
+    </p>
+    <ul className="list-disc list-inside ml-6 text-gray-700 leading-relaxed text-lg mb-6">
+        <li>
+            <strong>For the Littlest Explorers (3 months - 3 years):</strong> Think soft textures, bright colors, and lift-the-flap books that turn tummy time into a sensory playground. 🧸 We're here to help build those essential early brain connections! 🧠
+        </li>
+        <li>
+            <strong>For the Curious Creators (4 - 7 years):</strong> This is where the magic happens! 🌈 Our shelves are stacked with activity books, grammar guides, and storytelling adventures that make learning <strong>phonics, grammar, and math</strong> feel like a thrilling game. ➕
+        </li>
+        <li>
+            <strong>For the Young Scholars (8 - 12 years):</strong> We offer engaging reads and resources that support school lessons, foster independent thinking, and help them fall in love with complex topics, turning homework into a <strong>"can-do" challenge!</strong> 🌟
+        </li>
+    </ul>
+
+    <h3 className="text-2xl font-semibold text-gray-800 mt-6 mb-3 text-center md:text-left">
+        Our Commitment: Eco-Smart & Sustainable 💚
+    </h3>
+    <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
+        We are committed to providing innovative and <strong>eco-friendly</strong> solutions that inspire creativity and learning for all ages. 🌳 Our new <strong>EcoSmart Catalogue</strong> makes your shopping experience <strong>fast, accurate, and sustainable</strong>. 📱 Get instant, detailed information on every book and help us reduce paper waste by supporting <strong>Green Technology</strong>! 🌍
+    </p>
+    <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
+        Come join the FZ Smart Book family, where every book is an open door to a world of endless discovery! 🥰
+    </p>
+</div>
                 {/* Mission Cards */}
                 <div className="grid md:grid-cols-3 gap-6 mt-12">
                   <div 
