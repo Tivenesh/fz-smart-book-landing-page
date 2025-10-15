@@ -17,10 +17,10 @@ export function Header() {
             <div className="text-3xl animate-bounce" style={{ animationDuration: "2s" }}>
               📚
             </div>
-            <div 
+            <div
               className="text-2xl font-black text-purple-600"
-              style={{ 
-                fontFamily: "'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive",
+              style={{
+                fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
                 textShadow: "2px 2px 0px rgba(236, 72, 153, 0.3)"
               }}
             >
@@ -45,9 +45,8 @@ export function Header() {
 
       {/* Slide-out Menu Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 shadow-2xl z-40 transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-74 bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 shadow-2xl z-40 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex flex-col h-full pt-24 px-6">
           {/* Menu Links */}
@@ -59,7 +58,17 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               <span className="text-2xl">🏠</span>
-              <span style={{ fontFamily: "'Comic Sans MS', cursive" }}>Home</span>
+              <span style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>Home</span>
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xl">✨</span>
+            </a>
+
+            <a
+              href="/all-product"
+              className="flex items-center gap-3 text-white hover:text-yellow-200 font-bold text-lg transition-all duration-300 hover:translate-x-2 group py-3 px-4 rounded-xl hover:bg-white/20"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="text-2xl">🎨</span>
+              <span style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>All Products</span>
               <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xl">✨</span>
             </a>
 
@@ -69,27 +78,27 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               <span className="text-2xl">🎨</span>
-              <span style={{ fontFamily: "'Comic Sans MS', cursive" }}>All Products</span>
+              <span style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>Products</span>
               <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xl">✨</span>
             </a>
-            
+
             <a
               href="/about"
               className="flex items-center gap-3 text-white hover:text-yellow-200 font-bold text-lg transition-all duration-300 hover:translate-x-2 group py-3 px-4 rounded-xl hover:bg-white/20"
               onClick={() => setIsMenuOpen(false)}
             >
               <span className="text-2xl">💜</span>
-              <span style={{ fontFamily: "'Comic Sans MS', cursive" }}>About Us</span>
+              <span style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>About Us</span>
               <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xl">✨</span>
             </a>
-            
+
             <a
               href="/contact"
               className="flex items-center gap-3 text-white hover:text-yellow-200 font-bold text-lg transition-all duration-300 hover:translate-x-2 group py-3 px-4 rounded-xl hover:bg-white/20"
               onClick={() => setIsMenuOpen(false)}
             >
               <span className="text-2xl">📧</span>
-              <span style={{ fontFamily: "'Comic Sans MS', cursive" }}>Contact</span>
+              <span style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>Contact</span>
               <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xl">✨</span>
             </a>
           </nav>

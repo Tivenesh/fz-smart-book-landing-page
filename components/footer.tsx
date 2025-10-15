@@ -173,7 +173,8 @@ export function Footer() {
       </div>
 
       <div className="container mx-auto px-4 py-12 relative z-10">
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Changed to md:grid-cols-4 to accommodate the new column */}
+        <div className="grid md:grid-cols-4 gap-8">
           {/* Column 1: Logo */}
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-3 mb-4">
@@ -235,7 +236,30 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Column 3: Social Media */}
+          {/* Column 3: Contact Info (NEW COLUMN) */}
+          <div>
+            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+              <span className="text-2xl">☎️</span>
+              Contact Info
+            </h3>
+            <div className="flex flex-col gap-3 text-purple-200">
+              <div className="flex items-start gap-2">
+                <span className="text-xl text-yellow-300">📍</span>
+                <p>
+                  <span className="font-semibold text-white">Location:</span><br />
+                  B-G-5, Pangsapuri Serai Wangi, Desa Alam, 40170 Shah Alam, Selangor
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl text-yellow-300">📞</span>
+                <p>
+                  <span className="font-semibold text-white">Office:</span> 011-31929120
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 4: Social Media (Now Column 4) */}
           <div>
             <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
               <span className="text-2xl">🌟</span>
@@ -284,7 +308,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Copyright with decorative line */}
+        {/* Copyright with decorative line and contact details */}
         <div className="relative mt-8 pt-8">
           {/* Decorative wavy line */}
           <div className="absolute top-0 left-0 right-0 h-px overflow-hidden">
@@ -298,6 +322,15 @@ export function Footer() {
           </div>
 
           <div className="text-center">
+            <div className="flex justify-center gap-3 mb-3 text-purple-200 text-xs sm:text-sm flex-wrap">
+              <p>
+                <span className="font-bold">Address:</span> B-G-5, Pangsapuri Serai Wangi, Desa Alam, 40170 Shah Alam, Selangor
+              </p>
+              <span className="hidden sm:inline">|</span>
+              <p>
+                <span className="font-bold">Contact:</span> 011-31929120
+              </p>
+            </div>
             <p className="text-purple-200 text-sm flex items-center justify-center gap-2 flex-wrap">
               <span>© 2025 FZ SMART BOOK</span>
               <span className="text-lg">•</span>
