@@ -16,10 +16,10 @@ interface Sparkle {
 }
 
 interface Heart {
-    id: number;
-    x: number;
-    y: number;
-    duration: number;
+  id: number;
+  x: number;
+  y: number;
+  duration: number;
 }
 
 export default function AboutPage() {
@@ -132,9 +132,9 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           {/* Page Title */}
           <div className="text-center mb-12">
-            <h1 
+            <h1
               className="text-5xl md:text-6xl font-black text-purple-600 mb-4 animate-pulse"
-              style={{ 
+              style={{
                 animationDuration: "3s",
                 textShadow: "3px 3px 0px rgba(236, 72, 153, 0.3)",
                 fontFamily: "'Comic Sans MS', cursive"
@@ -156,20 +156,20 @@ export default function AboutPage() {
               {/* Decorative Elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-200 rounded-full opacity-30 -mr-20 -mt-20"></div>
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-pink-200 rounded-full opacity-30 -ml-24 -mb-24"></div>
-              
+
               {/* Floating decorative stars */}
-              <div 
+              <div
                 className="absolute top-10 right-10 text-4xl"
-                style={{ 
+                style={{
                   transform: `rotate(${floatOffset * 2}deg)`,
                   animation: "pulse 2s infinite"
                 }}
               >
                 ⭐
               </div>
-              <div 
+              <div
                 className="absolute bottom-10 left-10 text-3xl"
-                style={{ 
+                style={{
                   transform: `rotate(${-floatOffset * 2}deg)`,
                   animation: "pulse 2.5s infinite"
                 }}
@@ -182,9 +182,9 @@ export default function AboutPage() {
                 {/* Unicorn and Image Section */}
                 <div className="flex items-center justify-center mb-8 relative">
                   {/* Floating Unicorn */}
-                  <div 
+                  <div
                     className="absolute left-0 md:left-10 top-1/2 transform -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 cursor-pointer hover:scale-125 transition-all duration-300"
-                    style={{ 
+                    style={{
                       transform: `translateY(${Math.sin(floatOffset * 0.04) * 15 - 50}px) rotate(${Math.sin(floatOffset * 0.04) * 8}deg)`,
                       filter: "drop-shadow(0 10px 30px rgba(147, 51, 234, 0.4))"
                     }}
@@ -196,7 +196,7 @@ export default function AboutPage() {
                       height={128}
                       className="w-full h-full object-contain"
                     />
-                    <div 
+                    <div
                       className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-2xl animate-ping"
                       style={{ animationDuration: "2s" }}
                     >
@@ -224,9 +224,9 @@ export default function AboutPage() {
                   </div>
 
                   {/* Another cute monster */}
-                  <div 
+                  <div
                     className="absolute right-0 md:right-10 top-1/2 transform -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 cursor-pointer hover:scale-125 transition-all duration-300"
-                    style={{ 
+                    style={{
                       transform: `translateY(${Math.sin(floatOffset * 0.04 + Math.PI) * 18 - 50}px) rotate(${Math.sin(floatOffset * 0.04 + Math.PI) * 6}deg)`,
                       filter: "drop-shadow(0 10px 30px rgba(236, 72, 153, 0.4))"
                     }}
@@ -238,7 +238,7 @@ export default function AboutPage() {
                       height={128}
                       className="w-full h-full object-contain"
                     />
-                    <div 
+                    <div
                       className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-2xl animate-ping"
                       style={{ animationDuration: "2.5s", animationDelay: "0.5s" }}
                     >
@@ -247,48 +247,20 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-           <div className="prose prose-lg max-w-none">
-  
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
+                    <span className="text-2xl">🎀</span> Fz Smart Book, founded in 2023 by Ms. Sharifah Syafiera bt Syed Ghazalli under Fz Smart Shop, offers
+                    interactive and engaging educational materials for children aged 3 months to 12 years.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
+                    <span className="text-2xl">🌟</span> With a focus on learning through play, the brand creates fun, user-friendly, and high-quality
+                    products that support parents and educators while nurturing a love for learning from an early age.
+                  </p>
+                </div>
 
-    {/* Integrated and Cleaned Content (No more **) */}
-    <h2 className="text-3xl font-bold text-gray-900 mt-8 mb-4 text-center md:text-left">
-        Welcome to the World of FZ Smart Book! 📚✨
-    </h2>
-    <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
-        We're not just a bookstore; we're a <strong>launchpad for little learners</strong> 🚀! Our mission is simple but mighty: to inspire a lifelong love for reading and exploration in children, one incredible book and educational product at a time. 🤩
-    </p>
-
-    <h3 className="text-2xl font-semibold text-gray-800 mt-6 mb-3 text-center md:text-left">
-        Our Superpower: Learning Through Play 🖍️
-    </h3>
-    <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
-        At FZ Smart Book, we specialize in amazing educational materials for kids from <strong>3 months old all the way up to 12 years</strong>—from tiny tots to pre-teen adventurers. 👧👦
-    </p>
-    <ul className="list-disc list-inside ml-6 text-gray-700 leading-relaxed text-lg mb-6">
-        <li>
-            <strong>For the Littlest Explorers (3 months - 3 years):</strong> Think soft textures, bright colors, and lift-the-flap books that turn tummy time into a sensory playground. 🧸 We're here to help build those essential early brain connections! 🧠
-        </li>
-        <li>
-            <strong>For the Curious Creators (4 - 7 years):</strong> This is where the magic happens! 🌈 Our shelves are stacked with activity books, grammar guides, and storytelling adventures that make learning <strong>phonics, grammar, and math</strong> feel like a thrilling game. ➕
-        </li>
-        <li>
-            <strong>For the Young Scholars (8 - 12 years):</strong> We offer engaging reads and resources that support school lessons, foster independent thinking, and help them fall in love with complex topics, turning homework into a <strong>"can-do" challenge!</strong> 🌟
-        </li>
-    </ul>
-
-    <h3 className="text-2xl font-semibold text-gray-800 mt-6 mb-3 text-center md:text-left">
-        Our Commitment: Eco-Smart & Sustainable 💚
-    </h3>
-    <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
-        We are committed to providing innovative and <strong>eco-friendly</strong> solutions that inspire creativity and learning for all ages. 🌳 Our new <strong>EcoSmart Catalogue</strong> makes your shopping experience <strong>fast, accurate, and sustainable</strong>. 📱 Get instant, detailed information on every book and help us reduce paper waste by supporting <strong>Green Technology</strong>! 🌍
-    </p>
-    <p className="text-gray-700 leading-relaxed text-lg mb-6 text-center md:text-left">
-        Come join the FZ Smart Book family, where every book is an open door to a world of endless discovery! 🥰
-    </p>
-</div>
                 {/* Mission Cards */}
                 <div className="grid md:grid-cols-3 gap-6 mt-12">
-                  <div 
+                  <div
                     className="bg-gradient-to-br from-purple-100 to-purple-50 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-purple-200 cursor-pointer group"
                     style={{
                       transform: `translateY(${Math.sin((floatOffset + 0) * 0.02) * 5}px)`
@@ -302,7 +274,7 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  <div 
+                  <div
                     className="bg-gradient-to-br from-pink-100 to-pink-50 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-pink-200 cursor-pointer group"
                     style={{
                       transform: `translateY(${Math.sin((floatOffset + 120) * 0.02) * 5}px)`
@@ -316,7 +288,7 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  <div 
+                  <div
                     className="bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-yellow-200 cursor-pointer group"
                     style={{
                       transform: `translateY(${Math.sin((floatOffset + 240) * 0.02) * 5}px)`
