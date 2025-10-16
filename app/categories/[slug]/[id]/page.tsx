@@ -356,6 +356,15 @@ const ALL_BOOKS_DATA = [
     image: "/SNAIL SNUFFING TOYS.jpg",
     categorySlug: "snail-snuffing-toys",
   },
+  {
+    id: 56,
+    title: "BUKU BERGAMBAR 2 BAHASA",
+    price: 23.90,
+    rack: "R02",
+    description: "Buku bergambar My early Amazing Picture Books Board sesuai untuk anak yang berumur 1 tahun sehingga 6 tahun ( material tahan lasak ).",
+    image: "/BUKU BERGAMBAR 2 BAHASA.jpg",
+    categorySlug: "buku-bergambar-2-bahasa",
+  },
 ];
 
 export default function ProductDetailPage({ params }: { params: { slug: string; id: string } }) {

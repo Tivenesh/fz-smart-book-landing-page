@@ -80,7 +80,7 @@ const All_BookData = [
     id: 1,
     title: "BUKU BERGAMBAR 3 BAHASA (VERSION 1)",
     price: 23.9,
-    rack: "R02",
+    rack: "R01",
     image: "/BUKU BERGAMBAR 3 BAHASA.jpg",
     categorySlug: "buku-bergambar-3-bahasa",
   },
@@ -88,7 +88,7 @@ const All_BookData = [
     id: 2,
     title: "BUKU BERGAMBAR 3 BAHASA (VERSION 2)",
     price: 23.9,
-    rack: "R02",
+    rack: "R01",
     image: "/BUKU BERGAMBAR 3 BAHASA (2).jpg",
     categorySlug: "buku-bergambar-3-bahasa",
   },
@@ -309,6 +309,14 @@ const All_BookData = [
 
   // --- Kategori: snail-snuffing-toys ---
   { id: 53, title: "SNAIL SNUFFING TOYS", price: 55.0, rack: "R15", image: "/SNAIL SNUFFING TOYS.jpg", categorySlug: "snail-snuffing-toys" },
+  {
+    id: 54,
+    title: "BUKU BERGAMBAR 2 BAHASA",
+    price: 23.90,
+    rack: "R02",
+    image: "/BUKU BERGAMBAR 2 BAHASA.jpg",
+    categorySlug: "buku-bergambar-2-bahasa",
+  },
 ];
 export default async function CategoryPage({ params }: { params: { slug: string } }) {
   const awaitedParams = await params;
